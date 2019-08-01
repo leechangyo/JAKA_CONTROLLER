@@ -1,0 +1,8 @@
+<launch>
+  <!--Load the joint controllers to param server-->
+  <rosparam file="$(find mobile_jaka_arm)/config/controller.yaml" command="load"/>
+
+  <!--Load controllers-->
+  <node name="spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/jakaUr" args="arm_controller gripper_controller joint_state_controller"/>
+</launch>
